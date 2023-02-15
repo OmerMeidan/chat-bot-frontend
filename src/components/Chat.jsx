@@ -28,6 +28,7 @@ function Chat(props) {
   const [msgInputValue, setMsgInputValue] = useState("");
   const [messages, setMessages] = useState([{}]);
   const [viewMsg,setViewMsg]=useState([])
+  const [side,setSide]=useState(0)
   useEffect(() => {
     const tempArray = []
     const answerArray= []
@@ -48,6 +49,7 @@ function Chat(props) {
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
         break;
       case 'i Want to intergrate into working fields':
+        setSide(1)
         setIndex(12)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
         break;
@@ -68,52 +70,198 @@ function Chat(props) {
       setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       break
     case "1":
-      if(index===2){
+      if(index===2 && side===0){
         setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===2 && side===1){
+        setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===4){
+        setIndex(5)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
       break
     case "2":
-      if(index===2){
+      if(index===2 && side===0){
         setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===2 && side===1){
+        setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===4){
+        setIndex(5)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
       break
     case "3":
-      if(index===2){
+      if(index===2 && side===0){
         setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===2 && side===1){
+        setIndex(3)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===4){
+        setIndex(5)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
       break
     case '4':
-      if(index===2){
+      if(index===2 && side===0){
         setIndex(4)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===4){
+        setIndex(6)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
       break
     case "5":
-      if(index===2){
+      if(index===2 && side===0){
         setIndex(4)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
+      if(index===4){
+        setIndex(6)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
       break
+
     case "Yes":
-      if(index===3){
+      if(index===3  && side===0){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===3 && side===1){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===5){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===6){
+        setIndex(9)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===7){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===8){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===9&&side===0){
+        setIndex(11)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===10&&side===0){
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===9 && side===1){
+        
+      }
+      if(index===13 && side===1){
+        console.log("hello")
+        setIndex(2)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      break
+
+    case "No":
+      if(index===3 && side===0){
+        setIndex(4)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===3 && side===1){
+        setIndex(9)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===5){
+        setIndex(6)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===6){
+        setIndex(7)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===7){
+        setIndex(8)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===8){
+        setIndex(9)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===9 && side===0){
+        setIndex(10)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===9 && side===1){
+        setIndex(10)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===10 && side===0){
+        setIndex(11)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===10 && side===1){
+        setIndex(18)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===12 && side===1){
+        setIndex(13)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      }
+      if(index===13 && side===1){
         setIndex(16)
         setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       }
       break
-    case "No":
-      if(index===3){
-        setIndex(4)
-        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
-      }
-      break
     case "Web Design":
+      setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       window.open('https://forms.monday.com/forms/4648f63d6a603732b82323c0d317db4a?r=use1', '_blank', 'noreferrer')
       break
     case "Python & Data Analysis":
+      setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
       window.open('https://forms.monday.com/forms/107914c04d1bb696511e4406a381547a?r=use1', '_blank', 'noreferrer')
+      break
+      case "UI/UX Design":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
+      case "Graphic Motion":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+      window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
+      case "Full Stack Development":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+        // window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
+      break
+      case "Front End Development":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+         // window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
+      break
+      case "Video Editing":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+         // window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
+      break
+      case "Adobe After Effects":
+        setIndex(16)
+        setViewMsg([...viewMsg,messages[index][0],{message:answer,direction:'outgoing'}])
+         // window.open("https://docs.google.com/forms/d/e/1FAIpQLSeISFpM3VeUcfthmqT1X6J_8TtlAxKuZp6MRr_T0GYLLAsVDA/viewform" ,'_blank', 'noreferrer')
       break
   }}
   const refresh = ()=>{
@@ -148,10 +296,11 @@ function Chat(props) {
           <Box as={MessageInput} style={{
             display: "flex",
             flexDirection: "row",
-            borderTop: "1px solid #d1dbe4"
+            borderTop: "1px solid #d1dbe4",
+            overflow:'auto'
           }}>
             <ExpansionPanel style={{ width: '100%', height: '100%' }} title="Answers" isOpened={true}>
-              {messages[index][1]&&messages[index][1].map(a=><Box>{(index===12&&a==="Submit skill/trade ")&&<TextField onChange={(e)=>setSkill(e.target.value)}/>}<Button sx={{border:'1px solid teal',borderRadius:'7px',margin:'2px'}} onClick={()=>updateChat(a)}>{a}</Button></Box>)}
+              {messages[index][1]&&messages[index][1].map(a=><Box>{(index===12&&a==="Submit skill/trade")&&<TextField onChange={(e)=>setSkill(e.target.value)}/>}<Button sx={{border:'1px solid teal',borderRadius:'7px',margin:'2px'}} onClick={()=>updateChat(a)}>{a}</Button></Box>)}
             </ExpansionPanel>
           </Box>
         </ChatContainer>
