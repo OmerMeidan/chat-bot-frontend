@@ -1,10 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
 const Context = () => {
-    const x=5;
-    return {
-        x
-    }
+  const Answer = new Array(18);
+  //   console.log(Answer);
+  return { Answer };
 };
-
 export default Context;

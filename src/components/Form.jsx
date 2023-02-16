@@ -63,7 +63,7 @@ function Form() {
 
       if (res.data) {
         console.log("Response:", res.data);
-        localStorage.setItem("Email", JSON.stringify(data.get("Email")));
+        localStorage.setItem("_id", JSON.stringify(res.data.user._id));
         Navigate("/");
       }
     } catch (error) {
