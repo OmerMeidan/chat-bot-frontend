@@ -7,8 +7,8 @@ import Context from "./components/Context";
 import { Routes, Route } from "react-router-dom";
 export const FormContext = createContext();
 function App() {
-  const { Answer } = Context();
-  const context = { Answer };
+  const {Answer}= Context()
+  const context = {Answer}
   return (
     <FormContext.Provider value={context}>
       <div className="App">
