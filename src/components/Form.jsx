@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { FormContext } from "../App";
@@ -21,15 +21,16 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
+import emailjs from '@emailjs/browser';
 function Form() {
   const Navigate = useNavigate();
-  const { x } = useContext(FormContext);
+  const {obj,setObj } = useContext(FormContext);
   const [Gender, setGender] = React.useState("");
 
   const Genderpick = (event) => {
     setGender(event.target.value);
   };
-
+  
   function Copyright(props) {
     return (
       <Typography
@@ -49,22 +50,33 @@ function Form() {
   }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
 
-    try {
-      const res = await axios.post("http://localhost:8000/Register", {
-        Email: data.get("Email"),
-        FullName: data.get("FullName"),
-        City: data.get("City"),
-        Phone: data.get("Phone"),
-        Gender: Gender,
-      });
+    const man = {
 
-      if (res.data) {
-        console.log("Response:", res.data);
-        localStorage.setItem("_id", JSON.stringify(res.data.user._id));
-        Navigate("/");
+            Email: data.get("Email"),
+            FullName: data.get("FullName"),
+            City: data.get("City"),
+            Phone: data.get("Phone"),
+            Gender: Gender,
+
+        }
+
+    setObj(man)
+      try {
+          const res = await axios.post("http://localhost:8000/Register", {
+              Email: data.get("Email"),
+              FullName: data.get("FullName"),
+              City: data.get("City"),
+              Phone: data.get("Phone"),
+              Gender: Gender,
+            });
+            
+            if (res.data) {
+                console.log("Response:", res.data);
+                localStorage.setItem("_id", res.data.user._id);
+                 Navigate("/");
       }
     } catch (error) {
       console.log(error);
@@ -77,7 +89,7 @@ function Form() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
-          sx={{
+          style={{
             marginTop: 8,
             display: "flex",
             flexDirection: "column",
@@ -88,13 +100,14 @@ function Form() {
             <PsychologyAltRoundedIcon sx={{}} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Hello and Welcom to our
+            Hello and welcome to our
             <br />
-            Bot-Assisted assesment to Help You get the best service!
+            Bot-Assisted to help You get the best service!
             <br />
             <br />
-            Please fill our Form
+            Please fill our form
           </Typography>
+
           <Box
             component="form"
             onSubmit={handleSubmit}
